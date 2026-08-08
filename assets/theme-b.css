@@ -58,7 +58,6 @@ h2 { font-family: var(--sans); font-weight: 700; text-transform: uppercase; lett
 .mark .mcp { color: var(--accent); border-color: var(--accent); }
 .eyebrow, .kicker { color: var(--accent); }
 .eyebrow::before, .kicker::before { color: var(--accent); }
-.path.new .p-head, .path.new .p-step .num, .path.new .p-total { color: var(--accent); }
 .hf-top .dot { background: var(--accent); }
 
 /* honesty band inverts to a yellow slab */
@@ -71,9 +70,10 @@ h2 { font-family: var(--sans); font-weight: 700; text-transform: uppercase; lett
 .app-card-head { background: var(--paper-2); }
 .c-cta { background: var(--paper-2); }
 .faq { background: var(--paper-2); }
-.path.old { background: var(--paper-2); }
-.path.new { background: var(--card); }
-.host-tab { background: var(--card); }
-.host-tab.on { border-color: var(--accent); color: var(--accent); }
 .host-frame { background: var(--card); }
 .mock-cap, .chat-hint { color: var(--muted); }
+
+/* v3.2 tweaks */
+.qa h3 { text-transform: uppercase; font-size: 16.5px; }
+.win { box-shadow: 0 12px 28px -12px rgba(0, 0, 0, .55); }
+.honesty .rule { border-color: #131312; }

@@ -19,10 +19,15 @@
         '<div class="p-vars">' + c.vars.map(function (v, i) { return '<span class="p-var' + (i === 0 ? ' sel' : '') + '">' + v + '</span>'; }).join('') + '</div>' +
         '</div></div>');
     },
+    order: function (c) {
+      return el('app-card c-pay',
+        '<div class="pay-row"><span>' + c.label + '</span><b>' + c.sum + '</b></div>' +
+        '<div class="pay-done"><span class="mini-btn">Сплатити →</span></div>');
+    },
     pay: function (c) {
       return el('app-card c-pay',
         '<div class="pay-row"><span>' + c.label + '</span><b>' + c.sum + '</b></div>' +
-        '<div class="pay-done"><span class="stamp">✓ ОПЛАЧЕНО В ЧАТІ</span></div>');
+        '<div class="pay-done"><span class="stamp">✓ СПЛАЧЕНО · КВИТАНЦІЯ В ЧАТІ</span></div>');
     },
     track: function (c) {
       return el('app-card c-track',
@@ -100,8 +105,10 @@
     },
     shop3: {
       steps: [
+        { card: { type: 'order', label: 'WaterGrip City · сірі · 42', sum: '₴3 490' } },
+        { sys: '→ відкрилась безпечна сторінка оплати…' },
         { card: { type: 'pay', label: 'WaterGrip City · сірі · 42', sum: '₴3 490' } },
-        { a: 'Готово. Без сайту, кошика, реєстрації і листа «підтвердіть email» — гроші у вас, клієнт не виходив із розмови.' },
+        { a: 'Готово. Без кошика, реєстрації і листа «підтвердіть email»: клік — сторінка оплати — і квитанція вже в розмові.' },
         { card: { type: 'track', title: 'Замовлення №1204', steps: ['Оплачено', 'Передано в доставку', 'У відділенні'], at: 1 } },
         { a: 'І статус замовлення він теж спитає тут — не дзвінком у ваш офіс.' }
       ],
@@ -215,6 +222,11 @@
       if (i >= node.steps.length) { busy = false; setChips(node.chips); return; }
       var s = node.steps[i++];
       if (s.u) { addBubble('u', s.u); setTimeout(next, DELAY * 0.6); return; }
+      if (s.sys) {
+        var sl = el('sysline pop-in', s.sys);
+        $chat.appendChild(sl); scrollDown();
+        setTimeout(next, DELAY * 1.1); return;
+      }
       var t = addTyping();
       setTimeout(function () {
         t.remove();
@@ -229,18 +241,13 @@
 
   play('start');
 
-  /* ---------- hosts tabs ---------- */
+  /* ---------- footer jump chips: scroll up + start a branch ---------- */
 
-  var tabs = document.querySelectorAll('.host-tab');
-  tabs.forEach(function (t) {
-    t.addEventListener('click', function () {
-      tabs.forEach(function (x) { x.classList.toggle('on', x === t); });
-      var frame = document.querySelector('.host-frame');
-      if (frame) {
-        frame.dataset.host = t.dataset.host;
-        var lbl = frame.querySelector('.hf-label');
-        if (lbl) lbl.textContent = t.dataset.label;
-      }
+  document.querySelectorAll('.jump').forEach(function (j) {
+    j.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+      $chat.innerHTML = '';
+      play(j.dataset.go);
     });
   });
 
