@@ -7,10 +7,6 @@
 <meta name="description" content="Переносимо ваш продукт туди, де клієнт уже розмовляє зі ШІ: методика, наставник, аналітика, оплата — все в одному чаті. ChatGPT, Claude, Gemini.">
 <meta name="theme-color" content="#faf9f5">
 <link rel="canonical" href="https://yesmcp.com/">
-<link rel="alternate" hreflang="uk" href="https://yesmcp.com/">
-<link rel="alternate" hreflang="ru" href="https://yesmcp.com/ru/">
-<link rel="alternate" hreflang="en" href="https://yesmcp.com/en/">
-<link rel="alternate" hreflang="x-default" href="https://yesmcp.com/en/">
 <meta property="og:title" content="Yes MCP — Бізнес переїхав у ШІ-чати. Ми перевозимо ваш.">
 <meta property="og:description" content="Методика, наставник, аналітика, оплата — все в одному чаті. ChatGPT, Claude, Gemini.">
 <meta property="og:url" content="https://yesmcp.com/">
@@ -20,7 +16,7 @@
 <link rel="preload" href="/assets/fonts/literata-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plexsans-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
-<script src="/assets/app.js" defer></script>
+<script src="/assets/chat.js" defer></script>
 </head>
 <body>
 
@@ -38,136 +34,76 @@
 
 <main>
 
-<div class="hero grain">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">MCP apps · ChatGPT · Claude · Gemini</p>
-      <h1 class="era">
-        <span class="line dim">Десять років тому бізнесу був потрібен сайт.</span>
-        <span class="line dim">П’ять років тому — застосунок.</span>
-        <span class="line"><span class="now">Сьогодні<svg class="stroke" viewBox="0 0 320 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8 C 80 2, 240 12, 316 5"/></svg></span> — присутність у ChatGPT, Claude і Gemini.</span>
-      </h1>
-      <p class="hero-sub">Ми переносимо ваш продукт туди, де клієнт уже розмовляє зі ШІ:
-        методика, наставник, аналітика, оплата — все в одному чаті.</p>
-      <div class="cta-row">
-        <a class="btn big" href="mailto:yes@yesmcp.com?subject=Показ%20за%2015%20хвилин">Покажемо за 15 хвилин <span class="arr">→</span></a>
-        <a class="btn big ghost" href="https://t.me/yesmcp">Telegram</a>
-      </div>
-      <p class="cta-note">Живий продукт з телефона — без слайдів і презентацій.</p>
-    </div>
-
-    <figure class="mock" aria-label="Інтерактивна картка продукту всередині ШІ-чату">
-      <div class="chat">
-        <div class="chat-head"><span class="dot pulse"></span>ШІ-ЧАТ · ВАШ ПРОДУКТ ПІДКЛЮЧЕНО</div>
-
-        <div class="scene live">
-          <div class="step bubble-user" style="--i:0">Як пройшов мій тиждень практики?</div>
-          <div class="step bubble-ai" style="--i:1">Переглянув ваш журнал. П’ять днів із семи — ось тиждень:</div>
-          <div class="step app-card" style="--i:2">
-            <div class="app-card-head">
-              <span>Тиждень 3 · Ранкова практика</span>
-              <span class="tag">ВАШ БРЕНД</span>
-            </div>
-            <div class="week">
-              <span class="day done" style="--t:2.3s">пн</span><span class="day done" style="--t:2.45s">вт</span><span class="day done" style="--t:2.6s">ср</span><span class="day">чт</span><span class="day done" style="--t:2.75s">пт</span><span class="day done" style="--t:2.9s">сб</span><span class="day">нд</span>
-            </div>
-            <div class="app-card-foot">
-              <span class="note">Найдовша серія: 3 дні поспіль</span>
-              <span class="mini-btn">Записати сьогодні ✓</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="scene">
-          <div class="step bubble-user" style="--i:0">А це точно з мого курсу? Покажи джерело.</div>
-          <div class="step bubble-ai" style="--i:1">Так, цитата дослівна — ось перевірене джерело:</div>
-          <div class="step app-card" style="--i:2">
-            <div class="quote-line">«Практика росте не із зусилля, а з повернення до неї.»</div>
-            <div class="src-meta">
-              <span>Модуль 3 · Лекція 2 · 12:47</span>
-              <span class="stamp">✓ ПЕРЕВІРЕНО ДОСЛІВНО</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="scene-dots" aria-hidden="true"><i class="on"></i><i></i></div>
-      <figcaption class="mock-cap">Так виглядає інтерактивне вікно вашого продукту просто в чаті.</figcaption>
-    </figure>
-  </div>
-</div>
-
-<div class="band">
-  <div class="wrap timeline">
-    <div class="t-cell" data-reveal>
-      <div class="when">≈ 2014</div>
-      <div class="what">Сайт</div>
-      <div class="how">Клієнт шукає вас у Google</div>
-    </div>
-    <div class="t-cell" data-reveal style="--d:.12s">
-      <div class="when">≈ 2019</div>
-      <div class="what">Застосунок</div>
-      <div class="how">Клієнт носить вас у кишені</div>
-    </div>
-    <div class="t-cell now" data-reveal style="--d:.24s">
-      <div class="when">Сьогодні</div>
-      <div class="what">ШІ-чат</div>
-      <div class="how">Клієнт радиться зі ШІ — і ваш продукт відповідає</div>
-    </div>
-  </div>
-</div>
-
-<section id="what">
+<div class="chat-hero grain">
   <div class="wrap">
-    <div class="kicker" data-reveal>Що ми будуємо</div>
-    <h2 data-reveal style="--d:.08s">Ваш бізнес стає осяжним усередині ШІ-чату</h2>
-    <p class="lead" data-reveal style="--d:.16s">Не віджет на сайті й не окремий застосунок, який треба
-      встановлювати. Ваш продукт живе там, куди клієнт уже приходить щодня, — у розмові зі ШІ.</p>
+    <div class="chat-shell">
+      <div class="chat-title">✳ Бізнес переїхав у ШІ-чати. Ми перевозимо ваш — спробуйте:</div>
+      <div class="chat-win" aria-label="Демо-розмова: так виглядає ваш бізнес усередині ШІ-чату">
+        <div class="chat-head"><span class="dot pulse"></span>ШІ-ЧАТ · ДЕМО: ВАШ БІЗНЕС УЖЕ ПІДКЛЮЧЕНО</div>
+        <div id="chatlog"></div>
+        <div id="chips"></div>
+      </div>
+      <p class="chat-hint">Це скриптоване демо, тицяйте у відповіді · або <span class="dn">↓</span> гортайте — нижче звичайний сайт</p>
+    </div>
+  </div>
+</div>
 
-    <div class="cap-list">
-      <div class="cap" data-reveal>
-        <span class="n">01</span>
-        <div><h3>Наставник за вашою методикою</h3><span class="cap-tag">Агент</span></div>
-        <p>Веде клієнта між заняттями, пам’ятає його прогрес і відповідає за вашими
-           матеріалами — вашим голосом, не загальними порадами з інтернету.</p>
+<section class="split" id="path">
+  <div class="wrap">
+    <div class="kicker" data-reveal>Та сама покупка</div>
+    <h2 data-reveal style="--d:.08s">Старий шлях клієнта — і новий</h2>
+    <p class="lead" data-reveal style="--d:.16s">Десять років тому бізнесу був потрібен сайт. П’ять років
+      тому — застосунок. Сьогодні клієнт просто розмовляє зі ШІ — і питання лише в тому,
+      чи відповідає там ваш продукт.</p>
+
+    <div class="split-grid" data-reveal style="--d:.2s">
+      <div class="path old">
+        <div class="p-head">Учора · сайт + застосунок</div>
+        <div class="p-step"><span class="num">01</span>Гуглить «кросівки на дощ»</div>
+        <div class="p-step"><span class="num">02</span>Відкриває 4 сайти, порівнює</div>
+        <div class="p-step"><span class="num">03</span>Кошик → «створіть акаунт»</div>
+        <div class="p-step pain"><span class="num">04</span>Форма з 9 полів</div>
+        <div class="p-step pain"><span class="num">05</span>Лист «підтвердіть email»</div>
+        <div class="p-step pain"><span class="num">06</span>Забув, чому прийшов</div>
+        <div class="p-step pain"><span class="num">07</span>Кинутий кошик</div>
+        <div class="p-total">7 кроків · 3 вкладки · без гарантії</div>
       </div>
-      <div class="cap" data-reveal style="--d:.06s">
-        <span class="n">02</span>
-        <div><h3>Брендовані інтерактивні вікна</h3><span class="cap-tag">Інтерфейс</span></div>
-        <p>Не лише текст: живі картки вашого продукту просто в чаті — трекер тижня,
-           джерело цитати, каталог, форма заявки.</p>
-      </div>
-      <div class="cap" data-reveal style="--d:.12s">
-        <span class="n">03</span>
-        <div><h3>Журнал і аналітика</h3><span class="cap-tag">Дані</span></div>
-        <p>Видно, як клієнти займаються насправді: записи практики, серії, точки, де
-           люди зупиняються. Цифри для рішень, а не відчуття.</p>
-      </div>
-      <div class="cap" data-reveal>
-        <span class="n">04</span>
-        <div><h3>Залучення між сесіями</h3><span class="cap-tag">Утримання</span></div>
-        <p>Завдання тижня, трекер прогресу, повернення до матеріалу — продукт працює
-           з клієнтом і тоді, коли ви спите.</p>
-      </div>
-      <div class="cap" data-reveal style="--d:.06s">
-        <span class="n">05</span>
-        <div><h3>Оплати й заявки з чату</h3><span class="cap-tag">Продажі</span></div>
-        <p>Клієнт не покидає розмову, щоб купити чи записатися: дія відбувається там
-           само, де виникло бажання.</p>
-      </div>
-      <div class="cap" data-reveal style="--d:.12s">
-        <span class="n">06</span>
-        <div><h3>Там, де ваші клієнти</h3><span class="cap-tag">Платформи</span></div>
-        <p>Відкритий протокол MCP підтримують ChatGPT, Claude, Gemini та десятки інших
-           ШІ-застосунків. Один продукт — усі майданчики.</p>
+      <div class="path new">
+        <div class="p-head">Сьогодні · ваш продукт у чаті</div>
+        <div class="p-step"><span class="num">01</span>«Підбери кросівки на дощ, 42»</div>
+        <div class="p-step"><span class="num">02</span>Картка товару → «Беру сірі»</div>
+        <div class="p-step"><span class="num">03</span>Оплата в чаті ✓</div>
+        <div class="p-total">3 кроки · 1 розмова · гроші у вас</div>
       </div>
     </div>
   </div>
 </section>
 
+<section class="hosts" id="hosts">
+  <div class="wrap">
+    <div class="kicker" data-reveal>Один продукт — усі майданчики</div>
+    <h2 data-reveal style="--d:.08s">Там, де ваші клієнти вже розмовляють</h2>
+    <div class="host-tabs" data-reveal style="--d:.14s">
+      <button class="host-tab on" data-host="chatgpt" data-label="CHATGPT · ВАШ ПРОДУКТ ПІДКЛЮЧЕНО">ChatGPT</button>
+      <button class="host-tab" data-host="claude" data-label="CLAUDE · ВАШ ПРОДУКТ ПІДКЛЮЧЕНО">Claude</button>
+      <button class="host-tab" data-host="gemini" data-label="GEMINI · ВАШ ПРОДУКТ ПІДКЛЮЧЕНО">Gemini</button>
+    </div>
+    <div class="host-frame" data-host="chatgpt" data-reveal style="--d:.2s">
+      <div class="hf-top"><span class="dot"></span><span class="hf-label">CHATGPT · ВАШ ПРОДУКТ ПІДКЛЮЧЕНО</span></div>
+      <div class="hf-body">
+        Той самий агент, той самий каталог, та сама картка — відкритий протокол MCP
+        підтримують ChatGPT, Claude, Gemini і десятки інших ШІ-застосунків.
+        <div class="mini-card"><span>Замовлення №1204 · У відділенні</span><span class="stamp">✓</span></div>
+      </div>
+    </div>
+    <p class="note-line" data-reveal style="--d:.26s">Будуємо один раз — клієнт користується там, де звик.</p>
+  </div>
+</section>
+
 <div class="honesty grain">
   <div class="wrap">
-    <p class="quote" data-reveal>Поза вашим курсом наставник чесно каже: <em>«цього в матеріалах
-      немає»</em>. Кожна цитата перевіряється дослівно — до абзацу джерела.</p>
+    <p class="quote" data-reveal>Поза вашими матеріалами агент чесно каже: <em>«цього немає»</em>.
+      Кожна цитата перевіряється дослівно — до абзацу джерела.</p>
     <div class="who" data-reveal style="--d:.14s">ПРИНЦИП РОБОТИ КОЖНОГО АГЕНТА YES MCP</div>
   </div>
 </div>
@@ -184,8 +120,8 @@
       </div>
       <div class="step" data-reveal style="--d:.12s">
         <div class="n">КРОК 2</div>
-        <h3>Приміряємо на вашу методику</h3>
-        <p>Розбираємо ваші матеріали й вирішуємо, що агент має вміти в першій версії.</p>
+        <h3>Приміряємо на ваш бізнес</h3>
+        <p>Розбираємо ваші матеріали чи каталог і вирішуємо, що агент має вміти в першій версії.</p>
       </div>
       <div class="step" data-reveal style="--d:.24s">
         <div class="n">КРОК 3</div>
@@ -203,7 +139,7 @@
     <div class="faq-list">
       <div class="qa" data-reveal>
         <h3>А він не почне вигадувати?</h3>
-        <p>Поза матеріалами курсу наставник чесно відповідає, що цього в курсі немає.
+        <p>Поза вашими матеріалами агент чесно відповідає, що цього немає.
            Кожну цитату можна перевірити дослівно — аж до абзацу джерела й таймкоду.</p>
       </div>
       <div class="qa" data-reveal style="--d:.08s">
@@ -214,7 +150,7 @@
       <div class="qa" data-reveal style="--d:.16s">
         <h3>Скільки це коштує?</h3>
         <p>Перший крок безплатний — 15 хвилин живого демо. Далі фіксований обсяг і
-           термін під вашу методику: ціну називаємо після примірки, а не «від» зі стелі.</p>
+           термін під ваш бізнес: ціну називаємо після примірки, а не «від» зі стелі.</p>
       </div>
     </div>
   </div>
@@ -246,10 +182,6 @@
     <span>© 2026 Yes MCP</span>
   </div>
 </footer>
-
-<div class="sticky-cta" aria-hidden="false">
-  <a class="btn" href="mailto:yes@yesmcp.com?subject=Показ%20за%2015%20хвилин">Покажемо за 15 хвилин <span class="arr">→</span></a>
-</div>
 
 </body>
 </html>
