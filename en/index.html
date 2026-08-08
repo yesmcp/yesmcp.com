@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yes MCP — Business has moved into AI chats. We'll move yours.</title>
 <meta name="description" content="We bring your product where your customers already talk to AI: your method, an AI mentor, analytics, payments — all inside the chat. ChatGPT, Claude, Gemini.">
+<meta name="theme-color" content="#faf9f5">
 <link rel="canonical" href="https://yesmcp.com/en/">
 <link rel="alternate" hreflang="uk" href="https://yesmcp.com/">
 <link rel="alternate" hreflang="ru" href="https://yesmcp.com/ru/">
@@ -15,10 +16,11 @@
 <meta property="og:url" content="https://yesmcp.com/en/">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preload" href="/assets/fonts/literata-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/plexsans-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/app.js" defer></script>
 </head>
 <body>
 
@@ -36,41 +38,59 @@
 
 <main>
 
-<div class="hero">
+<div class="hero grain">
   <div class="wrap hero-grid">
     <div>
+      <p class="eyebrow">MCP apps · ChatGPT · Claude · Gemini</p>
       <h1 class="era">
         <span class="line dim">Ten years ago your business needed a website.</span>
         <span class="line dim">Five years ago — an app.</span>
-        <span class="line">Today it needs a presence in ChatGPT, Claude, and Gemini.</span>
+        <span class="line"><span class="now">Today<svg class="stroke" viewBox="0 0 320 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8 C 80 2, 240 12, 316 5"/></svg></span> — a presence in ChatGPT, Claude, and Gemini.</span>
       </h1>
       <p class="hero-sub">We bring your product where your customers already talk to AI:
         your method, an AI mentor, analytics, payments — all inside the chat.</p>
       <div class="cta-row">
-        <a class="btn big" href="mailto:yes@yesmcp.com?subject=15-minute%20demo">Show me in 15 minutes</a>
+        <a class="btn big" href="mailto:yes@yesmcp.com?subject=15-minute%20demo">Show me in 15 minutes <span class="arr">→</span></a>
         <a class="btn big ghost" href="https://t.me/yesmcp">Telegram</a>
       </div>
+      <p class="cta-note">A live product from a phone — no slides, no decks.</p>
     </div>
 
     <figure class="mock" aria-label="An interactive product card inside an AI chat">
       <div class="chat">
-        <div class="chat-head"><span class="dot"></span>AI CHAT · YOUR PRODUCT CONNECTED</div>
-        <div class="bubble-user">How did my practice week go?</div>
-        <div class="bubble-ai">I checked your journal. Five days out of seven — here's the week:</div>
-        <div class="app-card">
-          <div class="app-card-head">
-            <span>Week 3 · Morning practice</span>
-            <span class="tag">YOUR BRAND</span>
+        <div class="chat-head"><span class="dot pulse"></span>AI CHAT · YOUR PRODUCT CONNECTED</div>
+
+        <div class="scene live">
+          <div class="step bubble-user" style="--i:0">How did my practice week go?</div>
+          <div class="step bubble-ai" style="--i:1">I checked your journal. Five days out of seven — here's the week:</div>
+          <div class="step app-card" style="--i:2">
+            <div class="app-card-head">
+              <span>Week 3 · Morning practice</span>
+              <span class="tag">YOUR BRAND</span>
+            </div>
+            <div class="week">
+              <span class="day done" style="--t:2.3s">mo</span><span class="day done" style="--t:2.45s">tu</span><span class="day done" style="--t:2.6s">we</span><span class="day">th</span><span class="day done" style="--t:2.75s">fr</span><span class="day done" style="--t:2.9s">sa</span><span class="day">su</span>
+            </div>
+            <div class="app-card-foot">
+              <span class="note">Longest streak: 3 days in a row</span>
+              <span class="mini-btn">Log today ✓</span>
+            </div>
           </div>
-          <div class="week">
-            <span class="day done">mo</span><span class="day done">tu</span><span class="day done">we</span><span class="day">th</span><span class="day done">fr</span><span class="day done">sa</span><span class="day">su</span>
-          </div>
-          <div class="app-card-foot">
-            <span class="note">Longest streak: 3 days in a row</span>
-            <span class="mini-btn">Log today ✓</span>
+        </div>
+
+        <div class="scene">
+          <div class="step bubble-user" style="--i:0">Is that really from my course? Show the source.</div>
+          <div class="step bubble-ai" style="--i:1">Yes — the quote is word-for-word. Here's the verified source:</div>
+          <div class="step app-card" style="--i:2">
+            <div class="quote-line">"Practice grows not from effort, but from returning to it."</div>
+            <div class="src-meta">
+              <span>Module 3 · Lecture 2 · 12:47</span>
+              <span class="stamp">✓ VERIFIED WORD-FOR-WORD</span>
+            </div>
           </div>
         </div>
       </div>
+      <div class="scene-dots" aria-hidden="true"><i class="on"></i><i></i></div>
       <figcaption class="mock-cap">This is what your product's interactive window looks like, right in the chat.</figcaption>
     </figure>
   </div>
@@ -78,17 +98,17 @@
 
 <div class="band">
   <div class="wrap timeline">
-    <div class="t-cell">
+    <div class="t-cell" data-reveal>
       <div class="when">≈ 2014</div>
       <div class="what">Website</div>
       <div class="how">Customers google you</div>
     </div>
-    <div class="t-cell">
+    <div class="t-cell" data-reveal style="--d:.12s">
       <div class="when">≈ 2019</div>
       <div class="what">App</div>
       <div class="how">Customers carry you in their pocket</div>
     </div>
-    <div class="t-cell now">
+    <div class="t-cell now" data-reveal style="--d:.24s">
       <div class="when">Today</div>
       <div class="what">AI chat</div>
       <div class="how">Customers consult AI — and your product answers</div>
@@ -98,45 +118,45 @@
 
 <section id="what">
   <div class="wrap">
-    <div class="kicker">What we build</div>
-    <h2>Your business becomes tangible inside the AI chat</h2>
-    <p class="lead">Not a widget on your website, not another app to install.
+    <div class="kicker" data-reveal>What we build</div>
+    <h2 data-reveal style="--d:.08s">Your business becomes tangible inside the AI chat</h2>
+    <p class="lead" data-reveal style="--d:.16s">Not a widget on your website, not another app to install.
       Your product lives where your customers already spend every day — in a conversation with AI.</p>
 
     <div class="cap-list">
-      <div class="cap">
+      <div class="cap" data-reveal>
         <span class="n">01</span>
-        <h3>A mentor trained on your method</h3>
+        <div><h3>A mentor trained on your method</h3><span class="cap-tag">Agent</span></div>
         <p>Guides your client between sessions, remembers their progress, and answers
            from your materials — in your voice, not generic internet advice.</p>
       </div>
-      <div class="cap">
+      <div class="cap" data-reveal style="--d:.06s">
         <span class="n">02</span>
-        <h3>Branded interactive windows</h3>
+        <div><h3>Branded interactive windows</h3><span class="cap-tag">Interface</span></div>
         <p>More than text: live cards of your product right in the chat — a weekly
            tracker, a source card, a catalog, a booking form.</p>
       </div>
-      <div class="cap">
+      <div class="cap" data-reveal style="--d:.12s">
         <span class="n">03</span>
-        <h3>Journal and analytics</h3>
+        <div><h3>Journal and analytics</h3><span class="cap-tag">Data</span></div>
         <p>See how clients actually practice: journal entries, streaks, the exact points
            where people stop. Numbers for decisions, not gut feelings.</p>
       </div>
-      <div class="cap">
+      <div class="cap" data-reveal>
         <span class="n">04</span>
-        <h3>Engagement between sessions</h3>
+        <div><h3>Engagement between sessions</h3><span class="cap-tag">Retention</span></div>
         <p>Weekly assignments, progress tracking, returning to the material — your
            product works with the client while you sleep.</p>
       </div>
-      <div class="cap">
+      <div class="cap" data-reveal style="--d:.06s">
         <span class="n">05</span>
-        <h3>Payments and bookings in the chat</h3>
+        <div><h3>Payments and bookings in the chat</h3><span class="cap-tag">Sales</span></div>
         <p>Clients don't leave the conversation to buy or book: the action happens
            right where the intent appeared.</p>
       </div>
-      <div class="cap">
+      <div class="cap" data-reveal style="--d:.12s">
         <span class="n">06</span>
-        <h3>Where your customers are</h3>
+        <div><h3>Where your customers are</h3><span class="cap-tag">Platforms</span></div>
         <p>The open MCP protocol is supported by ChatGPT, Claude, Gemini, and dozens
            of other AI apps. One product — every platform.</p>
       </div>
@@ -144,30 +164,30 @@
   </div>
 </section>
 
-<div class="honesty">
+<div class="honesty grain">
   <div class="wrap">
-    <p class="quote">Outside your course, the mentor says honestly: <em>"that's not in
+    <p class="quote" data-reveal>Outside your course, the mentor says honestly: <em>"that's not in
       the materials."</em> Every quote is verified word-for-word — down to the source paragraph.</p>
-    <div class="who">HOW EVERY YES MCP AGENT WORKS</div>
+    <div class="who" data-reveal style="--d:.14s">HOW EVERY YES MCP AGENT WORKS</div>
   </div>
 </div>
 
 <section id="how">
   <div class="wrap">
-    <div class="kicker">How we work</div>
-    <h2>From demo to launch</h2>
+    <div class="kicker" data-reveal>How we work</div>
+    <h2 data-reveal style="--d:.08s">From demo to launch</h2>
     <div class="steps">
-      <div class="step">
+      <div class="step" data-reveal>
         <div class="n">STEP 1</div>
         <h3>A 15-minute demo</h3>
         <p>A live walkthrough from a phone: you see a working product in the chat, not slides.</p>
       </div>
-      <div class="step">
+      <div class="step" data-reveal style="--d:.12s">
         <div class="n">STEP 2</div>
         <h3>We fit it to your method</h3>
         <p>We go through your materials and decide what the agent should do in version one.</p>
       </div>
-      <div class="step">
+      <div class="step" data-reveal style="--d:.24s">
         <div class="n">STEP 3</div>
         <h3>Build and launch</h3>
         <p>Fixed scope, fixed timeline. Your product appears in your clients' chat.</p>
@@ -176,14 +196,38 @@
   </div>
 </section>
 
-<div class="fin">
+<section class="faq" id="faq">
   <div class="wrap">
-    <div class="kicker">Yes MCP</div>
-    <h2>Business has moved into AI chats.<br>We'll move yours.</h2>
-    <div class="cta-row" style="margin-top:32px">
-      <a class="btn big" href="mailto:yes@yesmcp.com?subject=15-minute%20demo">Show me in 15 minutes</a>
+    <div class="kicker" data-reveal>Honest answers</div>
+    <h2 data-reveal style="--d:.08s">What people usually ask first</h2>
+    <div class="faq-list">
+      <div class="qa" data-reveal>
+        <h3>Won't it make things up?</h3>
+        <p>Outside your course materials, the mentor honestly says it's not in the course.
+           Every quote can be verified word-for-word — down to the source paragraph and timecode.</p>
+      </div>
+      <div class="qa" data-reveal style="--d:.08s">
+        <h3>Will my clients have to install anything?</h3>
+        <p>No. Your product connects to the chat they already use via a single link and
+           works from a phone — even on Claude's free plan.</p>
+      </div>
+      <div class="qa" data-reveal style="--d:.16s">
+        <h3>How much does it cost?</h3>
+        <p>The first step is free — a 15-minute live demo. Then a fixed scope and timeline
+           for your method: we name the price after the fitting, not a "from $X" out of thin air.</p>
+      </div>
     </div>
-    <p class="mail">or write to us: <a href="mailto:yes@yesmcp.com">yes@yesmcp.com</a> · <a href="https://t.me/yesmcp">t.me/yesmcp</a></p>
+  </div>
+</section>
+
+<div class="fin grain">
+  <div class="wrap">
+    <div class="kicker" data-reveal>Yes MCP</div>
+    <h2 data-reveal style="--d:.08s">Business has moved into AI chats.<br>We'll move yours.</h2>
+    <div class="cta-row" data-reveal style="--d:.16s">
+      <a class="btn big" href="mailto:yes@yesmcp.com?subject=15-minute%20demo">Show me in 15 minutes <span class="arr">→</span></a>
+    </div>
+    <p class="mail" data-reveal style="--d:.24s">or write to us: <a href="mailto:yes@yesmcp.com">yes@yesmcp.com</a> · <a href="https://t.me/yesmcp">t.me/yesmcp</a></p>
   </div>
 </div>
 
@@ -202,6 +246,10 @@
     <span>© 2026 Yes MCP</span>
   </div>
 </footer>
+
+<div class="sticky-cta">
+  <a class="btn" href="mailto:yes@yesmcp.com?subject=15-minute%20demo">Show me in 15 minutes <span class="arr">→</span></a>
+</div>
 
 </body>
 </html>
