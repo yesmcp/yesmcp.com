@@ -840,3 +840,25 @@ footer { border-top: 1px solid var(--hairline); padding: 36px 0 48px; font-size:
   .lrow p { grid-column: 2; }
   .rules { gap: 10px; }
 }
+
+/* ---------- v3.3 — use-cases columns ---------- */
+
+.uc-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.uc-head { font-weight: 700; font-size: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+.uc-item {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+  width: 100%; text-align: left;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--sans); font-size: 15.5px; color: var(--ink-soft);
+  padding: 13px 2px;
+  border-bottom: 1px solid var(--hairline);
+  transition: color .18s var(--ease), padding-left .18s var(--ease);
+}
+.uc-item span { color: var(--accent-deep); transition: transform .18s var(--ease); }
+.uc-item:hover { color: var(--ink); padding-left: 8px; }
+.uc-item:hover span { transform: translateX(3px); }
+.vs-num { font-size: 200px; bottom: -34px; }
+
+@media (max-width: 900px) {
+  .uc-grid { grid-template-columns: 1fr; gap: 20px; }
+}
