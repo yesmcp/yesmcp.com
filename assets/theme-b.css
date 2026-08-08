@@ -1,0 +1,79 @@
+/* Variant B — dark bold: ink canvas, acid-yellow accent, giant caps type.
+   Loaded AFTER styles.css, overrides tokens + a few components. */
+
+:root {
+  --paper: #131312;
+  --paper-2: #1c1c1a;
+  --hairline: #2e2e29;
+  --ink: #f4f2ea;
+  --ink-soft: #c9c6ba;
+  --muted: #8b897d;
+  --accent: #f2c40d;
+  --accent-deep: #ffd233;
+  --glow: rgba(242, 196, 13, .10);
+  --card: #1b1b19;
+}
+
+/* type: giant sans caps instead of serif */
+.mega {
+  font-family: var(--sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(34px, 5.6vw, 68px);
+  line-height: 1.02; letter-spacing: -.015em;
+}
+.mega .acc { color: var(--accent); }
+h2 { font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; }
+.cap h3, .step h3, .qa h3, .cta-t { font-family: var(--sans); font-weight: 700; }
+.t-cell .what { font-family: var(--sans); font-weight: 700; text-transform: uppercase; font-size: 24px; }
+
+/* buttons: yellow slabs */
+.btn { background: var(--accent); color: #131312; }
+.btn:hover { background: var(--accent-deep); box-shadow: 0 8px 24px -10px rgba(242, 196, 13, .5); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn.ghost:hover { background: var(--paper-2); }
+.mini-btn { background: var(--accent); color: #131312; }
+
+/* chat chrome */
+.top { background: color-mix(in srgb, var(--paper) 88%, transparent); }
+.chat-win { box-shadow: 0 1px 2px rgba(0,0,0,.3), 0 32px 80px -30px rgba(0,0,0,.6); }
+.chip { box-shadow: 2px 2px 0 var(--accent); border-color: var(--ink); }
+.chip:hover { background: rgba(242,196,13,.12); box-shadow: 3px 3px 0 var(--accent); }
+.chip:active { box-shadow: 1px 1px 0 var(--accent); }
+.stamp {
+  color: var(--accent); border-color: var(--accent);
+  background: rgba(242, 196, 13, .08);
+}
+.p-var.sel { border-color: var(--accent); color: var(--accent); background: rgba(242,196,13,.08); }
+.slot.sel { border-color: var(--accent); color: var(--accent); background: rgba(242,196,13,.08); }
+.p-price { color: var(--accent); }
+.day.done { border-color: var(--accent); background: var(--paper-2); }
+.day.done::after { color: var(--accent); }
+.tr-step.on i { background: var(--accent); border-color: var(--accent); }
+.chat-head .dot { background: var(--accent); }
+.chat-head .dot.pulse { animation-name: pulse-b; }
+@keyframes pulse-b { 50% { box-shadow: 0 0 0 5px rgba(242, 196, 13, .18); } }
+
+/* labels */
+.mark .mcp { color: var(--accent); border-color: var(--accent); }
+.eyebrow, .kicker { color: var(--accent); }
+.eyebrow::before, .kicker::before { color: var(--accent); }
+.path.new .p-head, .path.new .p-step .num, .path.new .p-total { color: var(--accent); }
+.hf-top .dot { background: var(--accent); }
+
+/* honesty band inverts to a yellow slab */
+.honesty { background: var(--accent); color: #131312; }
+.honesty .quote em { color: #131312; text-decoration: underline; text-decoration-thickness: 3px; }
+.honesty .who { color: rgba(19, 19, 18, .6); }
+.honesty::before { color: rgba(19, 19, 18, .07); }
+
+/* cards on dark */
+.app-card-head { background: var(--paper-2); }
+.c-cta { background: var(--paper-2); }
+.faq { background: var(--paper-2); }
+.path.old { background: var(--paper-2); }
+.path.new { background: var(--card); }
+.host-tab { background: var(--card); }
+.host-tab.on { border-color: var(--accent); color: var(--accent); }
+.host-frame { background: var(--card); }
+.mock-cap, .chat-hint { color: var(--muted); }

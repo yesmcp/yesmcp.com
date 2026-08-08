@@ -563,7 +563,7 @@ footer { border-top: 1px solid var(--hairline); padding: 36px 0 48px; font-size:
   border-radius: 22px;
   box-shadow: 0 1px 2px rgba(20,20,19,.04), 0 32px 80px -30px rgba(20,20,19,.25);
   display: flex; flex-direction: column;
-  height: min(66vh, 640px);
+  height: min(52vh, 500px);
   overflow: hidden;
 }
 .chat-win .chat-head {
@@ -742,8 +742,49 @@ footer { border-top: 1px solid var(--hairline); padding: 36px 0 48px; font-size:
 
 @media (max-width: 900px) {
   .chat-hero { padding: 20px 0 20px; }
-  .chat-win { height: min(74vh, 620px); border-radius: 18px; }
+  .chat-win { height: min(58vh, 540px); border-radius: 18px; }
   #chatlog { font-size: 14.5px; }
   .split-grid { grid-template-columns: 1fr; }
   .path.old { border-right: none; border-bottom: 1px solid var(--hairline); }
+}
+
+/* ---------- v3.1 — slogan above chat + brutal dose (variant A) ---------- */
+
+.mega-wrap { text-align: center; margin-bottom: 26px; }
+.eyebrow.center { justify-content: center; }
+.mega {
+  margin-top: 14px;
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.08; letter-spacing: -.022em;
+  text-wrap: balance;
+}
+.mega .acc { color: var(--accent-deep); }
+.mega-sub {
+  margin: 14px auto 0; max-width: 46ch;
+  font-size: 18px; color: var(--ink-soft);
+}
+
+/* brutal dose: sticker stamps, boxy chips */
+.stamp {
+  transform: rotate(-1.5deg);
+  border-width: 1.5px; font-weight: 500;
+}
+.chip {
+  border-radius: 12px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.chip:hover {
+  background: rgba(217,119,87,.1);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.chip:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
+.cta-alt { padding: 8px 0 0; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .mega { font-size: clamp(30px, 8.6vw, 44px); }
+  .mega-sub { font-size: 16px; }
+  .mega-wrap { margin-bottom: 18px; }
 }
