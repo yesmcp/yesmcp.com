@@ -13,6 +13,10 @@ Every number published here was measured on a real system and is dated.
 - [Your tool results are being read as an attack](https://yesmcp.com/writing/tool-results-read-as-injection/): imperative instructions inside a tool result match the tool-poisoning signature; a host warned a real user about our own connector. How we split the channels, and what it saved (frame 1043 → 509 characters, ~130 tokens per call).
 - [What the host doesn't deliver](https://yesmcp.com/writing/what-the-host-does-not-deliver/): the server `instructions` field never reaches the model; a deferred tool's description is unreachable until the tool loads; a new MCP session opens on nearly every call; the tool list is re-sent before every call (5698 bytes).
 
+## About
+
+- [Serhii Kravchenko — MCP engineer](https://yesmcp.com/about/): who runs this, what has been built and verified (a production MCP server with OAuth 2.1 serving a live user through Claude on web, mobile and desktop; MCP Apps views rendering with real data), and how these notes are produced. No client case studies are claimed.
+
 ## Contact
 
 - yes@yesmcp.com
