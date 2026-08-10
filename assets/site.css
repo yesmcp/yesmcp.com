@@ -79,6 +79,14 @@ section:first-of-type { border-top: 0; }
 /* ── type ───────────────────────────────────────────────────────────── */
 h1, h2, h3 { font-family: 'Literata', Georgia, serif; font-weight: 600; line-height: 1.2; }
 h1 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); margin: 0 0 1rem; letter-spacing: -0.015em; }
+/* Имя + должность должны стоять одной строкой на десктопе: при 2.7rem строка
+   шире колонки ровно на 10px (замерено 2026-08-10, 698px против 688px).
+   На узком экране 30 знаков в строку не влезут ни при каком читаемом кегле,
+   поэтому там разрешаем перенос и балансируем его по запятой. */
+h1.h1-name {
+  font-size: clamp(1.55rem, 3.4vw, 2.5rem);
+  text-wrap: balance;
+}
 h2 { font-size: 1.4rem; margin: 0 0 1.25rem; }
 h3 { font-size: 1.06rem; margin: 0 0 0.35rem; font-weight: 600; }
 p { margin: 0 0 1.05rem; max-width: var(--measure); }
