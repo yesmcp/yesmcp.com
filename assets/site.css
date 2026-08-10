@@ -1,0 +1,149 @@
+/* Yes MCP — expertise showcase. One stylesheet, no framework, no external domains.
+   Fonts are self-hosted subsets carried over from the v2 landing (128 KB total). */
+
+@font-face {
+  font-family: 'Literata';
+  src: url('/assets/fonts/literata-var.woff2') format('woff2-variations');
+  font-weight: 200 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Literata';
+  src: url('/assets/fonts/literata-italic-600.woff2') format('woff2');
+  font-weight: 600; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Plex Sans';
+  src: url('/assets/fonts/plexsans-var.woff2') format('woff2-variations');
+  font-weight: 100 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Plex Mono';
+  src: url('/assets/fonts/plexmono-400.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+:root {
+  --paper: #faf9f5;
+  --paper-2: #f0eee6;
+  --ink: #141413;
+  --ink-2: #4a4843;
+  --ink-3: #77746c;
+  --rule: #ddd9cd;
+  --accent: #b8492a;
+  --measure: 34rem;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  font-synthesis-weight: none;
+}
+
+/* ── layout ─────────────────────────────────────────────────────────── */
+.wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
+main { padding-bottom: 5rem; }
+section { padding: 3.5rem 0; border-top: 1px solid var(--rule); }
+section:first-of-type { border-top: 0; }
+
+/* ── masthead ───────────────────────────────────────────────────────── */
+.top { border-bottom: 1px solid var(--rule); }
+.top-in {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem; padding-top: 1.25rem; padding-bottom: 1.25rem;
+}
+.mark {
+  font-family: 'Plex Mono', ui-monospace, monospace;
+  font-size: 0.95rem; letter-spacing: 0.02em;
+  text-decoration: none; color: var(--ink); white-space: nowrap;
+}
+.mark b { font-weight: 400; color: var(--accent); }
+.nav { display: flex; gap: 1.25rem; font-size: 0.9rem; }
+.nav a { color: var(--ink-2); text-decoration: none; }
+.nav a:hover { color: var(--accent); }
+
+/* ── type ───────────────────────────────────────────────────────────── */
+h1, h2, h3 { font-family: 'Literata', Georgia, serif; font-weight: 600; line-height: 1.2; }
+h1 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); margin: 0 0 1rem; letter-spacing: -0.015em; }
+h2 { font-size: 1.4rem; margin: 0 0 1.25rem; }
+h3 { font-size: 1.06rem; margin: 0 0 0.35rem; font-weight: 600; }
+p { margin: 0 0 1.05rem; max-width: var(--measure); }
+a { color: var(--accent); }
+.lede { font-size: 1.12rem; color: var(--ink-2); max-width: var(--measure); }
+.eyebrow {
+  font-family: 'Plex Mono', monospace; font-size: 0.74rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 0.9rem;
+}
+code, .mono { font-family: 'Plex Mono', ui-monospace, monospace; font-size: 0.88em; }
+code { background: var(--paper-2); padding: 0.1em 0.32em; border-radius: 3px; }
+pre {
+  background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px;
+  padding: 0.9rem 1rem; overflow-x: auto; font-size: 0.82rem; line-height: 1.55;
+  margin: 0 0 1.4rem;
+}
+pre code { background: none; padding: 0; }
+blockquote {
+  margin: 0 0 1.4rem; padding-left: 1rem; border-left: 3px solid var(--rule);
+  color: var(--ink-2); font-style: italic;
+}
+
+/* ── services ───────────────────────────────────────────────────────── */
+.grid { display: grid; gap: 1.6rem; grid-template-columns: 1fr; }
+@media (min-width: 44rem) { .grid { grid-template-columns: 1fr 1fr; gap: 1.8rem 2.4rem; } }
+.grid p { font-size: 0.96rem; color: var(--ink-2); margin: 0; }
+
+/* ── writing list ───────────────────────────────────────────────────── */
+.posts { list-style: none; margin: 0; padding: 0; }
+.posts li { padding: 1.15rem 0; border-top: 1px solid var(--rule); }
+.posts li:first-child { border-top: 0; padding-top: 0; }
+.posts a { text-decoration: none; color: var(--ink); }
+.posts a:hover .t { color: var(--accent); }
+.posts .t { font-family: 'Literata', Georgia, serif; font-size: 1.1rem; font-weight: 600; display: block; }
+.posts .d {
+  font-family: 'Plex Mono', monospace; font-size: 0.75rem; color: var(--ink-3);
+  display: block; margin-bottom: 0.2rem;
+}
+.posts .s { font-size: 0.95rem; color: var(--ink-2); margin: 0.3rem 0 0; max-width: var(--measure); }
+
+/* ── article ────────────────────────────────────────────────────────── */
+article { padding: 3rem 0 0; }
+article h2 { margin-top: 2.5rem; }
+article ul { max-width: var(--measure); padding-left: 1.15rem; }
+article li { margin-bottom: 0.5rem; }
+.meta {
+  font-family: 'Plex Mono', monospace; font-size: 0.76rem; color: var(--ink-3);
+  margin: 0 0 1.5rem;
+}
+.back { display: inline-block; margin-top: 3rem; font-size: 0.9rem; }
+
+/* Facts we measured ourselves get a visible frame — the whole point of this site. */
+.evidence {
+  background: var(--paper-2); border: 1px solid var(--rule); border-left: 3px solid var(--accent);
+  border-radius: 4px; padding: 1rem 1.15rem; margin: 0 0 1.4rem; max-width: var(--measure);
+}
+.evidence p:last-child { margin-bottom: 0; }
+.evidence .eyebrow { margin-bottom: 0.5rem; }
+
+/* ── contact ────────────────────────────────────────────────────────── */
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.3rem; }
+.btn {
+  display: inline-block; padding: 0.68rem 1.25rem; border-radius: 5px;
+  text-decoration: none; font-size: 0.95rem; border: 1px solid var(--ink);
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-ghost { color: var(--ink); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── footer ─────────────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--rule); padding: 1.75rem 0 2.5rem;
+  font-size: 0.85rem; color: var(--ink-3);
+}
+footer a { color: var(--ink-2); }
