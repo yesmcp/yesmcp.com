@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The MCP spec shipped one day after its SDK — Yes MCP</title>
+<title>The MCP spec shipped one day after its SDK | Yes MCP</title>
 <meta name="description" content="The 2026-07-28 MCP specification made the protocol stateless and started a twelve-month deprecation clock. The TypeScript SDK was published the day before and still tops out at the November 2025 protocol.">
 <link rel="canonical" href="https://yesmcp.com/writing/spec-shipped-after-its-sdk/">
-<meta property="og:title" content="The MCP spec shipped one day after its SDK — and the SDK still can't speak it">
+<meta property="og:title" content="The MCP spec shipped one day after its SDK, and it still can't speak it">
 <meta property="og:description" content="A twelve-month migration clock started on 28 July. The tooling to migrate does not exist yet.">
 <meta property="og:type" content="article">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
@@ -19,7 +19,7 @@
     {
       "@type": "BlogPosting",
       "@id": "https://yesmcp.com/writing/spec-shipped-after-its-sdk/#article",
-      "headline": "The MCP spec shipped one day after its SDK — and the SDK still can't speak it",
+      "headline": "The MCP spec shipped one day after its SDK, and it still can't speak it",
       "description": "The 2026-07-28 MCP specification made the protocol stateless and started a twelve-month deprecation clock. The TypeScript SDK was published the day before and still tops out at the November 2025 protocol.",
       "datePublished": "2026-08-10",
       "dateModified": "2026-08-10",
@@ -51,7 +51,7 @@
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://yesmcp.com/"},
         {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://yesmcp.com/#writing"},
-        {"@type": "ListItem", "position": 3, "name": "The MCP spec shipped one day after its SDK — and the SDK still can't speak it"}
+        {"@type": "ListItem", "position": 3, "name": "The MCP spec shipped one day after its SDK, and it still can't speak it"}
       ]
     }
   ]
@@ -71,12 +71,12 @@
 <main class="wrap" id="main">
 <article>
   <p class="meta">By <a href="/about/">Serhii Kravchenko</a> · 2026-08-10 · verified against npm and the specification</p>
-  <h1>The MCP spec shipped one day after its SDK — and the SDK still can't speak it</h1>
+  <h1>The MCP spec shipped one day after its SDK, and it still can't speak it</h1>
 
   <p class="lede">
-    If you run a Model Context Protocol server written in TypeScript, a twelve-month clock
-    started on 28 July 2026. The natural reaction is to plan a migration sprint. Check your
-    tooling first: as of today it cannot be done.
+    If you run a Model Context Protocol server written in TypeScript, a twelve-month clock started on
+    28 July 2026. The natural reaction is to plan a migration sprint. Check your tooling first,
+    because as of today the work cannot be done at all.
   </p>
 
   <h2>What the July release changed</h2>
@@ -92,17 +92,17 @@
   </blockquote>
 
   <p>
-    Concretely: the <code>initialize</code>/<code>initialized</code> exchange is retired, and so
-    is the <code>Mcp-Session-Id</code> header along with the protocol-level session it carried.
-    What used to be negotiated once at connection time now travels in <code>_meta</code> on every
-    request. The legacy HTTP+SSE transport is deprecated with a year-long off-ramp, and Dynamic
-    Client Registration gives way to client metadata documents.
+    In practice: the <code>initialize</code> and <code>initialized</code> exchange is gone, and so is
+    the <code>Mcp-Session-Id</code> header along with the protocol-level session it carried. What used
+    to be negotiated once at connection time now travels in <code>_meta</code> on every request. The
+    legacy HTTP+SSE transport is deprecated with a year to move off it, and Dynamic Client
+    Registration gives way to client metadata documents.
   </p>
 
   <p>
-    For a server author the practical consequence is the session. If you kept anything per
-    session — a cursor, a cart, a last-read window, a user binding — that hiding place is going
-    away. The specification's own migration advice is to make the state visible instead:
+    For a server author it all comes down to the session. If you kept anything there, a cursor, a
+    cart, a last-read window, a binding to the user, that hiding place is going away. The
+    specification's own advice is to make the state visible instead:
   </p>
 
   <blockquote>
@@ -138,16 +138,16 @@ SUPPORTED_PROTOCOL_VERSIONS = ['2025-11-25','2025-06-18','2025-03-26',
   </div>
 
   <p>
-    Note the two dates next to each other. The specification was released on 28 July. The most
-    recent SDK was published on 27 July — the day before — and has not been updated since. The
-    tool that would implement the new protocol predates the protocol.
+    Put the two dates next to each other. The specification came out on 28 July. The most recent SDK
+    was published on 27 July, the day before, and has not been touched since. The tool that would
+    implement the new protocol is older than the protocol.
   </p>
 
   <p>
-    So the honest status is not "we are behind on the migration". It is "the migration has not
-    started anywhere in the TypeScript ecosystem, because it cannot". If a vendor offers to
-    migrate your TypeScript MCP server to the July specification today, ask them which SDK
-    version they intend to use.
+    So the honest status is not that we are behind on the migration. It is that the migration has not
+    started anywhere in the TypeScript ecosystem, because it cannot. If a vendor offers to migrate
+    your TypeScript MCP server to the July specification today, ask which SDK version they plan to
+    use.
   </p>
 
   <h2>What to do with a twelve-month clock and no tooling</h2>
@@ -160,45 +160,44 @@ SUPPORTED_PROTOCOL_VERSIONS = ['2025-11-25','2025-06-18','2025-03-26',
   <ul>
     <li>
       <strong>Watch one thing, not a newsletter.</strong> The trigger is a 2.x release or a beta
-      channel appearing on the SDK. That is a single command
-      (<code>npm view @modelcontextprotocol/sdk dist-tags</code>) run every couple of weeks.
+      channel appearing on the SDK. That is one command,
+      <code>npm view @modelcontextprotocol/sdk dist-tags</code>, run every couple of weeks.
     </li>
     <li>
-      <strong>Inventory what genuinely depends on the session</strong> — separately for your
-      application logic and for your transport plumbing. These usually turn out to be very
+      <strong>Inventory what genuinely depends on the session.</strong> Do it separately for your
+      application logic and for your transport plumbing. The two usually turn out to be very
       different sizes.
     </li>
     <li>
-      <strong>Decide the handle design before you need it.</strong> If state must survive, which
-      identifier does a tool return, and what stops one user's handle from being replayed by
-      another? That question is easier answered calmly than during a migration.
+      <strong>Decide the handle design before you need it.</strong> If state has to survive, which
+      identifier does a tool return, and what stops one user's handle from being replayed by another?
+      That question is much easier to answer calmly than mid-migration.
     </li>
   </ul>
 
   <h2>The part that surprised us</h2>
 
   <p>
-    When we ran that inventory on our own production server, we had already done half the
-    migration without meaning to. Our application state — the practice journal, the last window
-    of source text a user had read — was moved off the session and onto the user back in
-    early August, while fixing something else entirely: we had discovered that one host opens a
-    fresh MCP session on nearly every tool call, so per-session memory was already unreliable in
-    practice. Separately, we had taught the server to serve any request that arrives without a
-    live session, because a view's callback would otherwise die against a session id the host had
-    cached.
+    When I ran that inventory on my own production server, half the migration turned out to be done
+    already, by accident. The application state, meaning the practice journal and the last window of
+    source text a user had read, moved off the session and onto the user back in early August, while
+    I was fixing something else entirely. I had found that one host opens a fresh MCP session on
+    nearly every tool call, which made per-session memory unreliable in practice. Around the same time
+    I taught the server to answer any request that arrives without a live session, because otherwise
+    a view's callback would die against a session id the host had cached.
   </p>
 
   <p>
-    Both changes were bug fixes for host behaviour. Both turn out to be exactly what the
-    stateless specification asks for. What remains session-bound on our side is only transport
-    plumbing — the map from session id to transport instance, and a binding to the token owner
-    that becomes redundant once every request is authorised on its own.
+    Both changes were bug fixes for host behaviour. Both turn out to be exactly what the stateless
+    specification asks for. What is still tied to sessions on my side is only plumbing: the map from
+    session id to transport instance, plus a binding to the token owner that stops mattering once
+    every request is authorised on its own.
   </p>
 
   <p>
-    There is a general lesson in that. The hosts are ahead of the specification in the ways they
-    break you. If you have been fixing real host behaviour rather than coding to the document,
-    some of your migration may already be behind you.
+    There is a general lesson in that. Hosts are ahead of the specification in the ways they break
+    you. If you have spent your time fixing real host behaviour rather than coding to the document,
+    part of your migration may already be behind you.
   </p>
 
   <p><a class="back" href="/#writing">← All writing</a></p>
@@ -207,7 +206,7 @@ SUPPORTED_PROTOCOL_VERSIONS = ['2025-11-25','2025-06-18','2025-03-26',
 
 <footer>
   <div class="wrap">
-    Yes MCP — Model Context Protocol engineering by Serhii Kravchenko.
+    Yes MCP. Model Context Protocol engineering by Serhii Kravchenko.
     <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> ·
     <a href="mailto:yes@yesmcp.com">yes@yesmcp.com</a>
   </div>

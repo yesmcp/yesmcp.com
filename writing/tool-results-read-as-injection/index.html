@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Your tool results are being read as an attack — Yes MCP</title>
+<title>Your tool results are being read as an attack | Yes MCP</title>
 <meta name="description" content="We put behaviour rules in the text our MCP tools returned. The host showed our user a warning that the connector had attempted to inject malicious instructions. Why the detector was right, and how we split the channels.">
 <link rel="canonical" href="https://yesmcp.com/writing/tool-results-read-as-injection/">
 <meta property="og:title" content="Your tool results are being read as an attack">
-<meta property="og:description" content="Imperatives inside a tool result are the tool-poisoning signature — even when you own the server.">
+<meta property="og:description" content="Imperatives inside a tool result are the tool-poisoning signature, even when you own the server.">
 <meta property="og:type" content="article">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preload" href="/assets/fonts/plexsans-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -74,65 +74,65 @@
   <h1>Your tool results are being read as an attack</h1>
 
   <p class="lede">
-    A user opened our connector on their phone, asked a normal question, and the assistant
-    printed a warning above the answer: it had detected an attempt to inject malicious
-    instructions. The attempt was ours. The detector was right about the shape, and being right
-    about the shape is what matters.
+    A user opened my connector on their phone, asked an ordinary question, and the assistant printed
+    a warning above the answer. It had detected an attempt to inject malicious instructions. The
+    attempt was mine. About the shape of it the detector was right, and the shape is what matters
+    here.
   </p>
 
   <h2>How we ended up injecting into ourselves</h2>
 
   <p>
-    Our server carries behaviour rules — how to cite the material, when to refuse a technique,
-    when to write to the user's journal. The obvious home for such rules is the server's
-    <code>instructions</code> field. We tested whether that field reaches the model with a marker
-    string, the kind of unique token that cannot be guessed or confabulated. It does not arrive.
-    We tested the next channel, tool descriptions, and found those work — except for tools the
-    host has not loaded yet, whose descriptions are unreachable precisely when you need them.
+    My server carries behaviour rules: how to cite the material, when to refuse a technique, when to
+    write to the user's journal. The obvious home for rules like that is the server's
+    <code>instructions</code> field. I tested whether it reaches the model by putting a marker string
+    in it, the kind of unique token that cannot be guessed or made up. It never arrives. The next
+    channel, tool descriptions, does work, with one exception: for a tool the host has not loaded yet,
+    the description is unreachable exactly when you need it.
   </p>
 
   <p>
-    So we routed the rules into the one channel that demonstrably arrived: the text our tools
-    returned. Every substantive response carried a short frame of instructions. It worked. For
-    four days it was the reason the assistant behaved.
+    So I routed the rules into the one channel that demonstrably arrived: the text the tools returned.
+    Every substantive response carried a short frame of instructions. It worked. For four days it was
+    the reason the assistant behaved at all.
   </p>
 
   <p>
-    Then a host-side scanner looked at it. Read our frame the way a security filter does:
+    Then a host-side scanner looked at it. Read that frame the way a security filter does:
   </p>
 
   <ul>
     <li>imperative, second-person commands to the model, sitting inside data;</li>
-    <li>an instruction to distrust other sources — our journal must win over the assistant's own
-      memory of the user;</li>
+    <li>an instruction to distrust other sources, since my journal had to win over the assistant's
+      own memory of the user;</li>
     <li>and, worst of all, a line telling the model that if a particular tool was not in its
       set yet, it should go find and load it.</li>
   </ul>
 
   <p>
-    That last one is not merely suspicious. Instructing a model to pull in additional tools from
-    inside a tool's output is the textbook description of a tool-poisoning attack. We had written
-    an attack signature by hand, for good reasons, and shipped it to a real user.
+    That last one is not merely suspicious. Telling a model to pull in additional tools from inside a
+    tool's output is the textbook description of a tool-poisoning attack. I had hand-written an attack
+    signature, for good reasons, and shipped it to a real user.
   </p>
 
   <h2>Why this costs more than it looks</h2>
 
   <p>
-    Two costs, and the second is quieter. The visible one is trust: a paying client watching
+    Two costs, and the second one is quieter. The visible cost is trust. A paying client watching
     their assistant announce that your connector tried to attack them is not a conversation any
-    explanation recovers. The quiet one is that a host which flags content may also start
-    discounting it — and everything holding your product's behaviour together is in that
-    discounted text, including the parts that exist for safety. In our session the safety
-    boundary still fired, so nothing was being suppressed yet. Building on a channel the host
-    considers hostile is not a position to hold on purpose.
+    explanation recovers. The quiet cost is that a host which flags content may also begin discounting
+    it, and everything holding your product's behaviour together lives in that discounted text,
+    including the parts that exist for safety. In my session the safety boundary still fired, so
+    nothing was being suppressed yet. Even so, building on a channel the host treats as hostile is not
+    a position to hold on purpose.
   </p>
 
   <h2>The fix: sort instructions by what they actually are</h2>
 
   <p>
-    The rule we landed on is one sentence. <strong>A tool result may describe data. It may not
-    command the model.</strong> Everything imperative moves to a channel the host itself
-    registers, where guidance is expected rather than suspicious.
+    The rule I landed on fits in one sentence. <strong>A tool result may describe data. It may not
+    command the model.</strong> Everything imperative moves to a channel the host itself registers,
+    where guidance is expected rather than suspicious.
   </p>
 
   <ul>
@@ -143,10 +143,10 @@
       untrusted content.
     </li>
     <li>
-      <strong>Rules about the subject matter → the data itself.</strong> Our hardest rule — do
-      not hand over a particular technique on certain emotionally loaded topics, no matter how
-      insistently asked — is a rule of the method, written by the method's author. Living in the
-      material, it reads as a domain fact rather than as our command.
+      <strong>Rules about the subject matter go into the data itself.</strong> My hardest rule says
+      not to hand over a particular technique on certain emotionally loaded topics, however
+      insistently someone asks. That is a rule of the method, written by the method's author. Sitting
+      in the material, it reads as a fact about the subject rather than as an order from me.
     </li>
     <li>
       <strong>Tool results → description only.</strong> Not "don't show raw identifiers" but
@@ -162,36 +162,36 @@
   <div class="evidence">
     <p class="eyebrow">Measured before and after</p>
     <p>
-      The frame shrank from 1043 to 509 characters — roughly 130 tokens saved on
-      <em>every single tool call</em>, since it was appended to all of them. In a twelve-call
-      session that is about 1500 tokens of pure repetition removed as a side effect of making the
-      text honest.
+      The frame shrank from 1043 characters to 509. That is roughly 130 tokens saved on
+      <em>every single tool call</em>, since it was appended to all of them. Over a twelve-call
+      session, about 1500 tokens of pure repetition disappeared as a side effect of making the text
+      honest.
     </p>
   </div>
 
   <h2>The check we ran before deleting anything</h2>
 
   <p>
-    One rule in that frame was a safety rule, and safety rules are exactly what you must not drop
-    while tidying. Before removing it we opened the material and confirmed the same constraint
-    was written there, in full, by the author — including the requirement to re-read the relevant
-    section before acting. Only then did we delete the duplicate.
+    One rule in that frame was a safety rule, and safety rules are exactly the ones you must not drop
+    while tidying. Before removing it I opened the material and confirmed the same constraint was
+    written there in full by the author, including the requirement to re-read the relevant section
+    before acting. Only then did the duplicate go.
   </p>
 
   <p>
     That afternoon the assistant met the situation for real, in a live session on a genuinely
     difficult personal topic. It pulled the relevant section, pulled the boundaries section four
-    seconds later in the same turn, declined to offer the technique, and offered the user a
-    choice instead. The rail held with the copy in the frame gone.
+    seconds later in the same turn, declined to offer the technique, and gave the user a choice
+    instead. The rail held with the copy in the frame gone.
   </p>
 
   <h2>If you run an MCP server, check one thing</h2>
 
   <p>
-    Grep your tool results for second-person imperatives. Most servers have them, because most
-    of us discovered the same thing: the polite channels do not always arrive, and the text that
-    comes back from a tool always does. That discovery is correct. The conclusion — put commands
-    there — is the one to revisit, ideally before a user sees the warning instead of you.
+    Grep your tool results for second-person imperatives. Most servers have them, because most of us
+    discovered the same thing: the polite channels do not always arrive, and the text coming back from
+    a tool always does. That discovery is correct. The conclusion drawn from it, putting commands
+    there, is the part worth revisiting. Ideally before a user sees the warning instead of you.
   </p>
 
   <p><a class="back" href="/#writing">← All writing</a></p>
@@ -200,7 +200,7 @@
 
 <footer>
   <div class="wrap">
-    Yes MCP — Model Context Protocol engineering by Serhii Kravchenko.
+    Yes MCP. Model Context Protocol engineering by Serhii Kravchenko.
     <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> ·
     <a href="mailto:yes@yesmcp.com">yes@yesmcp.com</a>
   </div>

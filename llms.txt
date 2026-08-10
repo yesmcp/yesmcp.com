@@ -15,7 +15,7 @@ Every number published here was measured on a real system and is dated.
 
 ## About
 
-- [Serhii Kravchenko — MCP engineer](https://yesmcp.com/about/): who runs this, what has been built and verified (a production MCP server with OAuth 2.1 serving a live user through Claude on web, mobile and desktop; MCP Apps views rendering with real data), and how these notes are produced. No client case studies are claimed.
+- [Serhii Kravchenko ,  MCP engineer](https://yesmcp.com/about/): who runs this, what has been built and verified (a production MCP server with OAuth 2.1 serving a live user through Claude on web, mobile and desktop; MCP Apps views rendering with real data), and how these notes are produced. No client case studies are claimed.
 
 ## Contact
 

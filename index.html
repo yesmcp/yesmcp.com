@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yes MCP — MCP engineering for companies</title>
-<meta name="description" content="We build, harden and maintain Model Context Protocol servers for companies that need the capability without hiring for it. Notes from production, not from the spec.">
+<title>Yes MCP: MCP engineering for companies</title>
+<meta name="description" content="I build, harden and maintain Model Context Protocol servers for companies that need the capability without hiring for it. Notes from production, not from the spec.">
 <link rel="canonical" href="https://yesmcp.com/">
-<meta property="og:title" content="Yes MCP — MCP engineering for companies">
-<meta property="og:description" content="We build, harden and maintain MCP servers. Notes from production, not from the spec.">
+<meta property="og:title" content="Yes MCP: MCP engineering for companies">
+<meta property="og:description" content="I build, harden and maintain MCP servers. Notes from production, not from the spec.">
 <meta property="og:url" content="https://yesmcp.com/">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
@@ -69,14 +69,14 @@
   <section>
     <h1>MCP engineering for companies that don't want to hire for it</h1>
     <p class="lede">
-      The Model Context Protocol is how an AI assistant reaches your systems — your ERP, your CRM,
-      the in-house tool nobody outside the company has ever heard of. We build those connections,
-      make them safe enough for real data, and keep them working as the protocol moves.
+      The Model Context Protocol is how an AI assistant reaches into your systems: your ERP, your CRM,
+      the in-house tool nobody outside the company has ever heard of. I build those connections, make
+      them safe enough for real data, and keep them working as the protocol keeps moving.
     </p>
     <p>
-      Most of what is written about MCP is written from the specification. What follows on this
-      site is written from a server that runs in production, with OAuth, a real user and logs we
-      read every day. Where a claim below is measured, the measurement is shown.
+      Most of what gets written about MCP is written from the specification. Everything on this site
+      comes from a server that actually runs in production, with OAuth, a real user, and logs I read
+      every day. Where a claim below was measured, the measurement is shown next to it.
     </p>
   </section>
 
@@ -87,35 +87,35 @@
       <div>
         <h3>Servers for internal and legacy systems</h3>
         <p>
-          The systems no vendor will ever ship an official MCP server for: in-house tools,
-          regional software, the database behind a twenty-year-old process. The hard part is
-          rarely the protocol — it is deciding which handful of actions a model should be given,
-          and what it must never do alone.
+          The systems no vendor will ever ship an official MCP server for: in-house tools, regional
+          software, the database behind a twenty-year-old process. The protocol is rarely the hard
+          part. The hard part is choosing which handful of actions a model gets, and which ones it
+          must never take on its own.
         </p>
       </div>
       <div>
         <h3>Security and authorisation review</h3>
         <p>
-          Published surveys of public MCP servers keep finding the same two holes: no
-          authorisation at all, or a single static API key standing in for one. We review what
-          you have against how hosts actually behave, and fix the parts that only look safe.
+          Published surveys of public MCP servers keep finding the same two holes: no authorisation
+          at all, or one static API key standing in for it. I review what you have against how hosts
+          actually behave, and fix the parts that only look safe.
         </p>
       </div>
       <div>
         <h3>Readiness for the 2026-07-28 specification</h3>
         <p>
-          The July release turned the protocol stateless and deprecated the old transport with a
-          twelve-month runway. If your server holds per-session state, it is on that clock. We
-          audit what actually depends on sessions and write the migration plan — see the note
-          below on why the migration itself cannot be executed yet.
+          The July release turned the protocol stateless and deprecated the old transport, with
+          twelve months to move. If your server holds per-session state, it is on that clock. I audit
+          what really depends on sessions and write the migration plan. The note below explains why
+          the migration itself cannot be carried out yet.
         </p>
       </div>
       <div>
         <h3>Interactive UI inside the chat (MCP Apps)</h3>
         <p>
-          Not every answer should be a paragraph. A queue with approve buttons, a card, a tracker
-          the user ticks — rendered inside the assistant, backed by your data. We have shipped
-          these to Claude on web and on mobile and can tell you precisely where the edges are.
+          Not every answer should be a paragraph. A queue with approve buttons, a card, a tracker the
+          user ticks off, all rendered inside the assistant and backed by your data. I have shipped
+          these to Claude on web and on mobile, and can tell you exactly where the edges are.
         </p>
       </div>
     </div>
@@ -125,20 +125,19 @@
     <p class="eyebrow">Notes from production</p>
     <h2>Writing</h2>
     <p>
-      Each of these started as something that broke, surprised us, or contradicted the
-      documentation. Numbers are ours and reproducible.
+      Each of these started as something that broke, surprised me, or contradicted the documentation.
+      The numbers are mine and can be reproduced.
     </p>
     <ul class="posts">
       <li>
         <a href="/writing/spec-shipped-after-its-sdk/">
           <span class="d">2026-08-10</span>
-          <span class="t">The MCP spec shipped one day after its SDK — and the SDK still can't speak it</span>
+          <span class="t">The MCP spec shipped one day after its SDK, and it still can't speak it</span>
         </a>
         <p class="s">
-          The stateless rewrite landed on 28 July with a twelve-month migration window. The
-          TypeScript SDK that would implement it was published on 27 July and tops out at the
-          November 2025 protocol. Nobody is migrating yet, and that is worth knowing before you
-          plan a sprint.
+          The stateless rewrite landed on 28 July with a twelve-month migration window. The TypeScript
+          SDK that would implement it was published on 27 July, and it tops out at the November 2025
+          protocol. Nobody is migrating yet. Worth knowing before you plan a sprint.
         </p>
       </li>
       <li>
@@ -147,9 +146,9 @@
           <span class="t">Your tool results are being read as an attack</span>
         </a>
         <p class="s">
-          We put behaviour rules in the text our tools returned, because the legitimate channel
-          never reached the model. Then a user saw the host warn them that our connector had
-          attempted to inject malicious instructions. The detector was right about the shape.
+          I put behaviour rules in the text my tools returned, because the proper channel never
+          reached the model. Then a user watched the host warn them that this connector had tried to
+          inject malicious instructions. About the shape of it, the detector was right.
         </p>
       </li>
       <li>
@@ -158,9 +157,9 @@
           <span class="t">What the host doesn't deliver</span>
         </a>
         <p class="s">
-          A field guide to the channels between your server and the model: which ones arrive,
-          which silently don't, and what each costs. Four findings, each caught by a marker test
-          rather than by reading the specification.
+          A field guide to the channels between your server and the model: which ones arrive, which
+          quietly do not, and what each one costs. Four findings, none of them from reading the
+          specification.
         </p>
       </li>
     </ul>
@@ -170,9 +169,9 @@
     <p class="eyebrow">Contact</p>
     <h2>Tell us what your systems are</h2>
     <p>
-      The useful first conversation is short: what the system is, who inside the company would
-      use it through a chat, and what they must never be able to do by accident. If there is no
-      good answer to the third question yet, that is usually the first thing we work out together.
+      The useful first conversation is short. What the system is, who inside the company would use it
+      through a chat, and what they must never be able to do by accident. If the third question has no
+      good answer yet, working that out is usually where we start.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="mailto:yes@yesmcp.com">yes@yesmcp.com</a>
@@ -184,7 +183,7 @@
 
 <footer>
   <div class="wrap">
-    Yes MCP — Model Context Protocol engineering by Serhii Kravchenko.
+    Yes MCP. Model Context Protocol engineering by Serhii Kravchenko.
     <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> ·
     <a href="mailto:yes@yesmcp.com">yes@yesmcp.com</a>
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What the host doesn't deliver — Yes MCP</title>
+<title>What the host doesn't deliver | Yes MCP</title>
 <meta name="description" content="A field guide to the channels between an MCP server and the model: which arrive, which silently don't, and what each costs. Findings from a production connector, each caught by a marker test.">
 <link rel="canonical" href="https://yesmcp.com/writing/what-the-host-does-not-deliver/">
 <meta property="og:title" content="What the host doesn't deliver">
@@ -80,48 +80,48 @@
   </p>
 
   <p>
-    A caveat before the list: these were measured against one vendor's host — Claude, in its web,
-    mobile and desktop forms. We have not tested the others, so we do not claim anything about
-    them. That restraint is the point of the article.
+    A caveat before the list. All of this was measured against one vendor's host: Claude, in its web,
+    mobile and desktop forms. I have not tested the others, so I claim nothing about them. That
+    restraint is rather the point of the article.
   </p>
 
   <h2>1. The <code>instructions</code> field does not arrive</h2>
 
   <p>
-    An MCP server can declare <code>instructions</code>, and it reads like the natural home for
-    "how this server should be used". We put a unique marker string in it — the sort of token
-    that cannot be guessed — and asked the model whether it could see it. It could not, in any
-    form of the question.
+    An MCP server can declare <code>instructions</code>, and it reads like the natural home for "how
+    this server should be used". I put a unique marker string in it, the sort of token that cannot be
+    guessed, then asked the model whether it could see the string. It could not, in any phrasing of
+    the question.
   </p>
 
   <p>
-    Consequence: any behaviour you place there is decoration. Ours moved to tool descriptions,
-    which do arrive — and, for a while, into tool results, which turned out to be
-    <a href="/writing/tool-results-read-as-injection/">its own kind of mistake</a>.
+    So any behaviour you put there is decoration. Mine moved to tool descriptions, which do arrive,
+    and for a while into tool results, which turned out to be
+    <a href="/writing/tool-results-read-as-injection/">a mistake of its own</a>.
   </p>
 
   <h2>2. A tool's description is unreachable until the tool is loaded</h2>
 
   <p>
-    Hosts do not always hand the model every tool at once; some are deferred and fetched on
-    demand. A deferred tool's description therefore cannot tell the model when to use that tool —
-    the model has to already be reaching for it to read the instruction.
+    Hosts do not always hand the model every tool at once. Some are deferred and fetched on demand,
+    which means a deferred tool's description cannot tell the model when to use that tool. The model
+    has to be reaching for it already in order to read the instruction.
   </p>
 
   <p>
-    We learned this from an empty journal. Our writing tool carried a clear description saying
-    "call me at the end of every session". The model never called it, so it never read the
-    description saying to call it. The fix that worked was to put the obligation in the response
-    of a neighbouring tool that <em>was</em> loaded — and, separately, to write the first phrase
-    of the description in English, because the host's tool search is queried in English.
+    I learned this from an empty journal. The writing tool carried a clear description saying "call me
+    at the end of every session". The model never called it, so it never read the description telling
+    it to. What fixed it was moving the obligation into the response of a neighbouring tool that
+    <em>was</em> loaded. Separately, the first phrase of the description had to be in English, because
+    the host's tool search is queried in English.
   </p>
 
   <h2>3. A new session on nearly every call</h2>
 
   <p>
-    We built the server assuming a conversation maps to a session. It does not. In production
-    logs, a single conversation opens a fresh MCP session repeatedly — a distinct session id for
-    almost every tool call.
+    I built the server assuming a conversation maps to a session. It does not. In production logs, one
+    conversation opens fresh MCP sessions over and over, with a distinct session id for almost every
+    tool call.
   </p>
 
   <div class="evidence">
@@ -133,11 +133,11 @@
   </div>
 
   <p>
-    Two consequences worth internalising. First, keep state per <em>user</em>, not per session —
-    ours moved to the user early, and that is also what the July 2026 specification now asks of
-    everyone. Second, a view calling back into your server may present a session id the host has
-    cached and your server has long since retired; answering that with a 404 breaks the view.
-    Serving any well-authorised request without requiring a live session fixed it for us.
+    Two things follow. First, keep state per <em>user</em> rather than per session. Mine moved to the
+    user early, and that is also what the July 2026 specification now asks of everyone. Second, a view
+    calling back into your server may present a session id that the host has cached and your server
+    retired long ago. Answering that with a 404 breaks the view. What fixed it here was serving any
+    properly authorised request without insisting on a live session.
   </p>
 
   <h2>4. The tool list is re-sent before every single call</h2>
@@ -150,33 +150,32 @@
     <p class="eyebrow">Measured in production</p>
     <p>
       Before each tool call the host re-fetches the tool list: 5698 bytes, every time. Over a
-      twelve-call session that is roughly 68 KB of pure repetition, alongside the actual work —
-      which in our case was 0–4 ms per call for everything except a corpus search at 470 ms.
+      twelve-call session that comes to roughly 68 KB of pure repetition, next to the actual work,
+      which here was 0 to 4 ms per call for everything except a corpus search at 470 ms.
     </p>
   </div>
 
   <p>
-    If you are sizing a deployment, the traffic model is dominated by protocol overhead rather
-    than by your payloads. Every tool you add is paid for on every call, by every user, forever —
-    which is a good argument for a small, well-chosen tool set independent of any prompt-quality
-    concern.
+    If you are sizing a deployment, protocol overhead dominates the traffic model, not your payloads.
+    Every tool you add gets paid for on every call, by every user, forever. That alone is a good
+    argument for a small, well-chosen tool set, quite apart from anything to do with prompt quality.
   </p>
 
   <h2>The method: marker tests</h2>
 
   <p>
-    All four findings came from the same cheap technique, and it is the transferable part of this
-    article. When you need to know whether a channel reaches the model, put a unique nonsense
-    string into it — something that exists nowhere else — and ask the receiver whether it sees
-    it. The answer is binary and cannot be faked by a plausible-sounding model. Formulate the
-    expectation <em>before</em> running it, or any outcome will look like confirmation afterwards.
+    All four findings came from the same cheap technique, and that is the transferable part of this
+    article. When you need to know whether a channel reaches the model, put a unique nonsense string
+    into it, something that exists nowhere else, then ask the receiver whether it can see the string.
+    The answer is yes or no, and a plausible-sounding model cannot fake it. Write down what you expect
+    <em>before</em> running the test, or any outcome will look like confirmation afterwards.
   </p>
 
   <p>
-    The discipline behind it is simpler still: a specification, a JSDoc comment, a README, and a
-    model's own recollection are all <em>hypotheses about behaviour</em>. They become facts after
-    one decisive test on the real system. That test costs minutes. Finding out from a client
-    costs the engagement.
+    The discipline behind it is simpler still. A specification, a JSDoc comment, a README, and a
+    model's own recollection are all <em>hypotheses about behaviour</em>. They become facts after one
+    decisive test on the real system. That test costs minutes. Finding out from a client costs the
+    engagement.
   </p>
 
   <p><a class="back" href="/#writing">← All writing</a></p>
@@ -185,7 +184,7 @@
 
 <footer>
   <div class="wrap">
-    Yes MCP — Model Context Protocol engineering by Serhii Kravchenko.
+    Yes MCP. Model Context Protocol engineering by Serhii Kravchenko.
     <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> ·
     <a href="mailto:yes@yesmcp.com">yes@yesmcp.com</a>
   </div>

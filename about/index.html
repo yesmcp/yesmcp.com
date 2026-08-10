@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — Serhii Kravchenko, MCP engineer — Yes MCP</title>
-<meta name="description" content="Who runs Yes MCP, what has actually been built and measured, and how these notes are produced. Serhii Kravchenko — MCP engineer: production MCP servers, OAuth, and interactive UI inside AI assistants.">
+<title>About: Serhii Kravchenko, MCP engineer | Yes MCP</title>
+<meta name="description" content="Who runs Yes MCP, what has actually been built and measured, and how these notes are produced. Serhii Kravchenko, MCP engineer: production MCP servers, OAuth, and interactive UI inside AI assistants.">
 <link rel="canonical" href="https://yesmcp.com/about/">
-<meta property="og:title" content="About — Serhii Kravchenko, MCP engineer">
+<meta property="og:title" content="About: Serhii Kravchenko, MCP engineer">
 <meta property="og:description" content="Who runs Yes MCP, what has been built and measured, and how these notes are produced.">
 <meta property="og:url" content="https://yesmcp.com/about/">
 <meta property="og:type" content="profile">
@@ -22,7 +22,7 @@
       "@id": "https://yesmcp.com/#serhii",
       "name": "Serhii Kravchenko",
       "jobTitle": "MCP engineer",
-      "description": "MCP engineer. Builds and hardens Model Context Protocol servers for companies: production servers with OAuth 2.1, interactive MCP Apps interfaces inside AI assistants, and host-behaviour measurement. Writes up what was measured rather than what the specification promises.",
+      "description": "MCP engineer. Builds and hardens Model Context Protocol servers for companies: production servers with OAuth 2.1, interactive MCP Apps interfaces inside AI assistants, and measurement of how hosts really behave. Writes up what was measured, not what the specification promises.",
       "url": "https://yesmcp.com/about/",
       "worksFor": {"@id": "https://yesmcp.com/#organization"},
       "knowsAbout": ["Model Context Protocol", "MCP servers", "MCP Apps", "OAuth 2.1", "AI agent integration", "LLM tool design"],
@@ -66,47 +66,49 @@
 <main class="wrap" id="main">
 <article>
   <p class="meta">Last updated 2026-08-10</p>
-  <h1>Serhii Kravchenko — MCP engineer</h1>
+  <h1>Serhii Kravchenko, MCP engineer</h1>
 
   <p class="lede">
-    Yes MCP is my practice, not a company with a floor of engineers. One person does the work; that is
-    the honest shape of it, and it is why everything published here can be traced to something I ran
+    Yes MCP is my practice, not a company with a floor of engineers. One person does the work. That is
+    worth saying plainly, because it also means everything published here comes from something I ran
     myself.
   </p>
 
   <h2>What I have actually built</h2>
 
   <p>
-    A Model Context Protocol server that runs in production and is used daily — not a demo repository.
-    It is a remote connector: OAuth 2.1 resource server with the RFC 9728 discovery document, tokens
-    issued by a real identity provider, per-user state, an audit trail, session limits and an idle
-    timeout. It serves a live user through Claude on the web, on a phone and on the desktop.
+    A Model Context Protocol server that runs in production and gets used every day. Not a demo
+    repository. It is a remote connector with proper authorisation: an OAuth 2.1 resource server,
+    the RFC 9728 discovery document, tokens from a real identity provider, state kept per user, an
+    audit trail, session limits, an idle timeout. A live user reaches it through Claude on the web,
+    on a phone and on the desktop.
   </p>
 
   <p>
-    On top of it, interactive interfaces — MCP Apps views — that render inside the assistant with real
-    data: a card the user ticks, a source card with verbatim quotes. Those are shipped and verified on
-    Claude's web and mobile clients, which is a narrower claim than it sounds: most of what exists in
-    this space has been seen working in one client, on a developer's machine.
+    On top of it there are interactive interfaces, the ones the spec calls MCP Apps views. They render
+    inside the assistant with real data. One is a card the user ticks off during the week, another shows
+    the exact passage a quote came from. Both are shipped and checked on Claude's web and mobile
+    clients. That is a narrower claim than it sounds, and deliberately so: most of what exists in this
+    space has only ever been seen working in one client, on a developer's machine.
   </p>
 
   <p>
-    And the measurements. The findings in <a href="/#writing">the writing</a> came out of that server:
-    which channels between a server and a model actually arrive, what the protocol overhead really
-    costs per call, how a host behaves differently in one mode than another. Each was caught by a
-    cheap decisive test rather than by reading the documentation, because the documentation was
-    repeatedly wrong.
+    Then there are the measurements. Everything in <a href="/#writing">the writing</a> came out of that
+    same server. Which channels between a server and a model actually arrive. What the protocol
+    overhead really costs on every call. How one host behaves in a chat and differently in another
+    mode. None of that came from reading the documentation, because the documentation kept turning
+    out to be wrong. It came from cheap tests that could only answer yes or no.
   </p>
 
   <h2>What I am not</h2>
 
   <p>
-    I am not a twenty-year systems engineer, and pretending otherwise would be found out in the first
-    technical conversation. I came to this from the outside: two years ago I left e-commerce with no
-    technical background and went all in on AI, building real things until they held. What that path
-    produced is a habit of trusting nothing that has not been tested on a live system — which happens
-    to be the exact skill this technology rewards, because the specifications and the hosts disagree
-    constantly.
+    I am not a twenty-year systems engineer, and pretending otherwise would fall apart in the first
+    technical conversation. I came to this from outside. Two years ago I left e-commerce with no
+    technical background and went all in on AI, building real things until they held together. What
+    that path left me with is a refusal to trust anything until it has been tested on a live system.
+    In this particular technology that habit pays, because the specifications and the hosts disagree
+    with each other constantly.
   </p>
 
   <p>
@@ -117,10 +119,10 @@
   <h2>How these notes are produced</h2>
 
   <p>
-    The findings are mine — measured on systems I run, with the commands and outputs kept. The prose is
-    written with AI assistance, which is worth stating plainly on a site about AI tooling. Every number
-    published here was produced by a command whose output I read; nothing is estimated and presented as
-    measured. Where a claim is a hypothesis rather than a result, it says so.
+    The findings are mine. They were measured on systems I run, and the commands and their output are
+    kept. The prose is written with AI assistance, which seems worth saying out loud on a site about AI
+    tooling. Every number here came from a command whose output I read. Nothing is estimated and then
+    presented as measured. Where something is still a guess, it says so.
   </p>
 
   <p>
@@ -131,10 +133,10 @@
   <h2>Elsewhere</h2>
 
   <p>
-    I write about the wider path — agent systems, AI search, building from zero — at
-    <a href="https://wp.awrshift.com/" rel="me">AWRSHIFT</a>, which is my personal blog rather than a
-    company. I am also co-founder of an as-yet unnamed venture in content and site operations; it is
-    not the subject of this site.
+    I write about the wider path at <a href="https://wp.awrshift.com/" rel="me">AWRSHIFT</a>: agent
+    systems, AI search, and building from zero. That one is a personal blog, not a company. I am also
+    co-founder of a venture in content and site operations that has not been named publicly yet. It is
+    not what this site is about.
   </p>
 
   <p>
@@ -158,7 +160,7 @@
 
 <footer>
   <div class="wrap">
-    Yes MCP — Model Context Protocol engineering by Serhii Kravchenko.
+    Yes MCP. Model Context Protocol engineering by Serhii Kravchenko.
     <a href="/about/">About</a> · <a href="/privacy/">Privacy</a> ·
     <a href="mailto:yes@yesmcp.com">yes@yesmcp.com</a>
   </div>
