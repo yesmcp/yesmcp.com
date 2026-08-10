@@ -1,0 +1,9 @@
+# Cloudflare Pages reads this file. Headers the platform does not set for us —
+# the gap the ETALON audit found against wp.awrshift.com (2026-08-10).
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'none'

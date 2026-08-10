@@ -1,0 +1,18 @@
+# Yes MCP
+
+> Model Context Protocol engineering for companies: custom servers over internal and
+> legacy systems, security and authorisation review, readiness for the 2026-07-28
+> specification, and interactive UI (MCP Apps) inside the assistant.
+
+Notes are written from a server that runs in production, not from the specification.
+Every number published here was measured on a real system and is dated.
+
+## Writing
+
+- [The MCP spec shipped one day after its SDK](https://yesmcp.com/writing/spec-shipped-after-its-sdk/): the 2026-07-28 stateless rewrite started a twelve-month migration clock; the TypeScript SDK was published 2026-07-27 and supports protocol versions only up to 2025-11-25, so the migration cannot be executed yet.
+- [Your tool results are being read as an attack](https://yesmcp.com/writing/tool-results-read-as-injection/): imperative instructions inside a tool result match the tool-poisoning signature; a host warned a real user about our own connector. How we split the channels, and what it saved (frame 1043 → 509 characters, ~130 tokens per call).
+- [What the host doesn't deliver](https://yesmcp.com/writing/what-the-host-does-not-deliver/): the server `instructions` field never reaches the model; a deferred tool's description is unreachable until the tool loads; a new MCP session opens on nearly every call; the tool list is re-sent before every call (5698 bytes).
+
+## Contact
+
+- yes@yesmcp.com

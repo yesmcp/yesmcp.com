@@ -27,9 +27,9 @@
   --paper-2: #f0eee6;
   --ink: #141413;
   --ink-2: #4a4843;
-  --ink-3: #77746c;
+  --ink-3: #6b6862;   /* 5.27:1 on paper, 4.78:1 on paper-2 — WCAG AA at any size (was #77746c = 4.43/4.02, failed) */
   --rule: #ddd9cd;
-  --accent: #b8492a;
+  --accent: #ad4527;  /* 5.45:1 / 4.94:1 — AA on both surfaces (was #b8492a = 4.49 on paper-2, borderline) */
   --measure: 34rem;
   color-scheme: light;
 }
@@ -45,6 +45,14 @@ body {
   line-height: 1.65;
   font-synthesis-weight: none;
 }
+
+/* Skip-link: keyboard users should not tab the masthead on every page. */
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 10;
+  background: var(--ink); color: var(--paper); padding: 0.6rem 1rem;
+  text-decoration: none; border-radius: 0 0 4px 0;
+}
+.skip:focus { left: 0; }
 
 /* ── layout ─────────────────────────────────────────────────────────── */
 .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
