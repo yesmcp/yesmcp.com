@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy | Yes MCP</title>
-<meta name="description" content="This site sets no cookies, runs no analytics and loads nothing from third-party domains. What that means, and what happens to an email you send.">
+<meta name="description" content="No cookies, no analytics, no third-party requests on this site — and exactly three fields (name, email, topic) if you book a consultation through the Yes MCP connector.">
 <link rel="canonical" href="https://yesmcp.com/privacy/">
 <meta property="og:title" content="Privacy | Yes MCP">
 <meta property="og:description" content="No cookies, no analytics, no third-party requests. What happens to an email you send.">
@@ -26,7 +26,7 @@
 
 <main class="wrap" id="main">
 <article>
-  <p class="meta">Last updated 2026-08-10</p>
+  <p class="meta">Last updated 2026-08-21 · Effective 21 August 2026</p>
   <h1>Privacy</h1>
 
   <p class="lede">
@@ -51,6 +51,47 @@
     read by me. I keep the correspondence for as long as the conversation is useful, use it only to
     answer you, and never add anyone to a list or pass an address to a third party. Ask and I will
     delete the thread.
+  </p>
+
+  <h2>The Yes MCP connector</h2>
+
+  <p>
+    Yes MCP also runs its own MCP connector — the tools you can reach from inside an AI assistant
+    such as Claude or ChatGPT (<code>list_availability</code>, <code>book_consult</code>,
+    <code>get_services</code>, <code>advise_scenarios</code>, <code>demo_walkthrough</code>).
+    This section covers exactly what that connector collects. It does not cover the assistant
+    itself: your conversation with Claude or ChatGPT is governed by that provider's own policy,
+    and I neither receive nor store it.
+  </p>
+
+  <p>
+    The connector collects data in exactly one place: when you <strong>book a consultation</strong>.
+    Three fields, all given by you, in the conversation, at that moment: your <strong>name</strong>
+    (so I know who I am meeting), your <strong>email address</strong> (to send the confirmation and
+    be reachable about the meeting), and a one-line <strong>topic</strong> (so the call is not spent
+    on discovery). That is the entire list. There is no account, no login, no payment inside the
+    chat, and no way for the connector to receive anything else. The business type you mention to
+    the scenario advisor is used to pick an answer in the moment and is not stored.
+  </p>
+
+  <p>
+    A booking goes to: a database on a server Yes MCP controls; the email provider
+    (Resend, resend.com), to deliver your confirmation; my Telegram, so a person actually sees the
+    booking; and an operational log carrying the same three fields. Nothing is sold, shared with
+    advertisers, or passed to anyone beyond those processors. One deliberate exception, stated
+    plainly: if a request is <em>rejected</em> by the abuse rate-limit, the originating IP address
+    is written to the abuse log so abuse can be investigated. A booking that goes through leaves
+    no IP behind.
+  </p>
+
+  <p>
+    Booking records — including those log entries — are kept for <strong>24 months</strong> from
+    the date of the booking, then deleted. To have yours deleted sooner, email
+    <a href="mailto:privacy@yesmcp.com">privacy@yesmcp.com</a> from the address you booked with;
+    I handle these by hand and confirm within 30 days, in practice much sooner. You can ask for a
+    copy or a correction the same way. Cancelling or rescheduling is done by replying to the
+    confirmation email. Test bookings made by directory reviewers are marked
+    <code>[TEST]</code> and are treated — and deleted — identically.
   </p>
 
   <h2>If we work together</h2>
