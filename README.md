@@ -1,44 +1,31 @@
-# yesmcp.com
+# yesmcp.com — MOVED
 
-Expertise showcase for Yes MCP (Serhii Kravchenko, MCP engineer). Static, no build step,
-no framework, no external domains.
+**This repository is frozen. Do not edit it, do not deploy from it.**
 
-English only. The uk/ru versions were retired on the `showcase` branch when the site became
-a contractor showcase rather than a landing page (decision D-004); they remain in `main`'s
-history and can come back if demand shows.
+The source of yesmcp.com now lives in the **mcp-site** repository, under `site/`
+(Astro + Tailwind v4). Every page that used to be served from here — the front
+page, `/about/`, `/writing/<slug>/`, `/privacy/`, the 404, `robots.txt`,
+`sitemap.xml`, `llms.txt`, `_headers` and the og images — was ported there on
+2026-08-22, with the article URLs preserved exactly.
 
-## Layout
-
-```
-index.html              front page: services, writing index, contact
-about/                  who runs this, track record, what is not claimed
-privacy/                no cookies, no analytics, no third-party requests
-writing/<slug>/         one directory per piece
-404.html                served with a real 404 by Pages
-assets/site.css         the whole stylesheet
-assets/fonts/           self-hosted woff2 subsets (~128 KB)
-assets/og/              1200x630 share cards, one per page
-robots.txt              ours, allows everything including AI training crawlers
-sitemap.xml, llms.txt   hand-maintained, update when a page is added
-_headers                HSTS, CSP, X-Frame-Options, Permissions-Policy
-```
-
-## Deploy
+Deploys go out from that repo:
 
 ```sh
-npx wrangler pages deploy . --project-name yesmcp --branch showcase
+cd site
+bun install
+bun run deploy   # astro build && wrangler pages deploy dist --project-name=yesmcp
 ```
 
-`CLOUDFLARE_PAGES_TOKEN` lives in `mcp-app/.env`. Production is the `main` branch; the
-showcase has not been promoted there yet.
+The Cloudflare Pages project is unchanged (`yesmcp`, branch `main`), so the live
+domain keeps serving from the same place — only the source of the build moved.
 
-> After any deploy, verify on the UNIQUE deployment URL that wrangler prints, not on the
-> branch alias. The edge cache serves stale responses on the alias and produced three false
-> negatives in one day: a missing 404 page, an unapplied stylesheet, two absent images.
+What is left here is history: the hand-written static site, its stylesheet and its
+self-hosted font subsets, kept for reference and for the decision record. Two
+operational notes from that history still apply to the new repo and were carried
+over to its `CLAUDE.md`:
 
-## Gotcha: Cloudflare managed robots.txt
-
-The zone had **AI Crawl Control > Signals > Managed robots.txt** switched on, which served
-`Content-Signal: ai-train=no` plus `Disallow: /` for ClaudeBot, GPTBot, CCBot, Google-Extended
-and others. That is the inverse of what this site needs. It was switched off on 2026-08-10.
-If robots.txt ever stops matching the file in this repo, check that toggle first.
+- After any deploy, verify on the UNIQUE deployment URL wrangler prints, not on the
+  branch alias — the edge cache serves stale responses on the alias.
+- The zone's **AI Crawl Control > Signals > Managed robots.txt** was switched off on
+  2026-08-10. If robots.txt ever stops matching the file in the repo, check that
+  toggle first.
